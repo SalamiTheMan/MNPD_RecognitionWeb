@@ -1,0 +1,17 @@
+{
+  "name": "MNPD_RecognitionWeb",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "http-server -p 3000 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalamiTheMan/MNPD_RecognitionWeb.git"
+  },
+  "homepage": "https://github.com/SalamiTheMan/MNPD_RecognitionWeb#readme",
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "tesseract.js": "^2.1.1"
+  }
+}

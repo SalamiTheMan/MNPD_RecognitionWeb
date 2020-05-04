@@ -1,2 +1,1 @@
-# MNPD_RecognitionWeb
-Web-версия распознавания старых русских документов
+Используется Tesseract.js
