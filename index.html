@@ -1,27 +1,38 @@
 <html>
   <head>
-    <script src="https://unpkg.com/tesseract.js@2.0.0-beta.1/dist/tesseract.min.js"></script>
+    <script src="https://unpkg.com/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
+	<link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <img src="abzac.png" />
-    <div id="message">Recognizing...</div>
-    <script>
-      const { createWorker } = Tesseract;  
-		const worker = createWorker({
-			langPath: '..',
-			gzip: false,
-			logger: m => console.log(m)
-		});
+    <div class="page">
+      <div class="result">
+        <div class="result__preview text-center">
+          <img id="preview" width="400" src="testing.png" />
 
-		(async () => {
-			await worker.load();
-			await worker.loadLanguage('result_1000');
-			await worker.initialize('result_1000');
-			const { data: { text } } = await worker.recognize('abzac.png');
-			console.log(text);
-			document.getElementById('message').innerHTML = text;
-			await worker.terminate();
-		})();
-    </script>
+          <div>
+            <label for="file" class="btn btn-secondary">
+              Выберите файл
+              <input type="file" id="file" onchange="fileSelected(this)"/>
+            </label>
+          </div>
+        </div>
+
+        <div class="result__log">
+          <textarea id="message"></textarea>
+          <div class="text-center">
+            <button type="button" id="start" onclick="doSubmit()" class="btn btn-primary">
+              Начать обработку
+            </button>
+          </div>
+        </div>
+      </div>
+	  <br/>
+	  <div align="center">
+		<div id="status"></div>
+		</br>
+		<progress id="progressbar" min="0" max="1" value="0"/>
+	  </div>
+    </div>
+	<script src="app.js"></script>
   </body>
 </html>
