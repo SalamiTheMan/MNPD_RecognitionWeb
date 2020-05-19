@@ -1,22 +1,32 @@
 <html>
   <head>
     <script src="https://unpkg.com/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="pdf.js"></script>
+	<script src="pdf.worker.js"></script>
 	<link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
     <div class="page">
+	<div>
+		<label for="file" class="btn btn-secondary">
+              Выберите файл
+        <input type="file" id="file" onchange="fileSelected(this)"/>
+        </label>
+    </div>
+	<div id="pdf-buttons">
+		<button id="pdf-prev" class="btn btn-primary">Предыдущая стр.</button>
+		<button id="pdf-next" class="btn btn-primary">Следующая стр.</button>
+		<div id="page-count-container">
+			Страница <div id="pdf-current-page"></div> из <div id="pdf-total-pages"></div>
+		</div>
+	</div>
       <div class="result">
         <div class="result__preview text-center">
-          <img id="preview" width="400" src="testing.png" />
+          <canvas id="preview" width="400" height="400"></canvas>
 
-          <div>
-            <label for="file" class="btn btn-secondary">
-              Выберите файл
-              <input type="file" id="file" onchange="fileSelected(this)"/>
-            </label>
-          </div>
+
         </div>
-
         <div class="result__log">
           <textarea id="message"></textarea>
           <div class="text-center">
