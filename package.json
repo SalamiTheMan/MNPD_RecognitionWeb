@@ -12,7 +12,7 @@
   "homepage": "https://github.com/SalamiTheMan/MNPD_RecognitionWeb#readme",
   "dependencies": {
     "gh-pages": "^2.2.0",
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "tesseract.js": "^2.1.1"
   }
 }
